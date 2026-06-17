@@ -26,20 +26,20 @@
             flex-direction: column; 
         }
 
-        /* 3. 日期分隔线（天与天之间的分界线） */
+        /* 3. 日期分隔线 */
         .date-separator {
             text-align: center;
             color: rgba(255, 255, 255, 0.9);
             font-size: 13px;
             font-weight: bold;
-            margin: 30px 0 20px 0; /* 增加了上下间距，让天与天之间区分更明显 */
+            margin: 30px 0 20px 0; 
             position: relative;
         }
 
         /* 4. 消息行容器（头像+气泡+时间） */
         .message-row {
             display: flex;
-            margin-bottom: 18px; /* 调整了每条消息之间的距离 */
+            margin-bottom: 18px; 
             align-items: flex-start; 
         }
 
@@ -69,14 +69,14 @@
             line-height: 1.5;
         }
 
-        /* 灵魂细节：气泡内部的虚线分界线 */
+        /* 气泡内部的虚线分界线 */
         .bubble hr {
             border: none;
-            border-top: 1px dashed #ccc; /* dashed 代表虚线 */
-            margin: 8px 0; /* 虚线距离上下文字的间距 */
+            border-top: 1px dashed #ccc; 
+            margin: 8px 0; 
         }
 
-        /* 翻译文本的样式：颜色稍淡，方便阅读区分 */
+        /* 翻译文本的样式 */
         .translation {
             color: #555;
             font-size: 14.5px;
@@ -104,13 +104,71 @@
             margin-bottom: -4px; 
         }
 
+        /* 🌟 专属完美语音气泡样式（精美短白条） */
+        .bubble-voice-clickable {
+            background-color: white; 
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 18px;
+            border-top-left-radius: 0px; 
+            cursor: pointer; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px; 
+            user-select: none; 
+        }
+
+        .voice-icon {
+            font-size: 13px;
+            color: #333;
+        }
+
+        .voice-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* 🌟🌟🌟 全新追加：全屏大弹窗遮罩层样式 🌟🌟🌟 */
+        .video-popup-overlay {
+            display: none; /* 平时隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* 极具质感的暗黑全屏背景 */
+            z-index: 9999; /* 确保盖在所有消息最上方 */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 弹窗内的视频核心大小控制 */
+        .video-popup-overlay video {
+            width: 100%;
+            max-width: 450px; /* 锁死手机屏幕宽度，保持完美比例 */
+            max-height: 80vh; /* 防止长视频溢出屏幕 */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        /* 提示关闭的小文字 */
+        .close-tip {
+            position: absolute;
+            bottom: 30px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
 
     <div class="chat-container">
 
-        <div class="date-separator">2026年5月27日 (周四)</div>
+        <div class="date-separator">2026年5月27日 星期三</div>
 
         <div class="message-row">
             <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
@@ -132,7 +190,7 @@
             <div class="time">PM 12:05</div>
         </div>
 
-<div class="message-row">
+        <div class="message-row">
             <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
             <div class="bubble">
                 오늘 1일야 히히
@@ -150,7 +208,7 @@
             <div class="time">PM 14:49</div>
         </div>
 
-<div class="message-row">
+        <div class="message-row">
             <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
             <div class="bubble bubble-image">
                 <img src="ITNS3831.JPG" alt="爱豆发送的图片">
@@ -158,7 +216,7 @@
             <div class="time">PM 14:49</div>
         </div>
 
-<div class="message-row">
+        <div class="message-row">
             <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
             <div class="bubble bubble-image">
                 <img src="KFMU9325.JPG" alt="爱豆发送的图片">
@@ -176,7 +234,7 @@
             <div class="time">PM 14:50</div>
         </div>
 
-<div class="message-row">
+        <div class="message-row">
             <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
             <div class="bubble">
                 와서 같이 찍어줘
@@ -186,26 +244,26 @@
             <div class="time">PM 14:51</div>
         </div>
 
-<div class="message-row">
-    <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
-    <div class="bubble">
-        灵异事件哈哈哈
-    </div>
-    <div class="time">PM 14:51</div>
-</div>
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                灵异事件哈哈哈
+            </div>
+            <div class="time">PM 14:51</div>
+        </div>
 
-<div class="message-row">
-    <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
-    <div class="bubble">
-        没错是👻帮我拍的
-    </div>
-    <div class="time">PM 14:52</div>
-</div>
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                没错是👻帮我拍的
+            </div>
+            <div class="time">PM 14:52</div>
+        </div>
 
 
-        <div class="date-separator">2026年5月28日 (周五)</div>
+        <div class="date-separator">2026年5月28日 星期四</div>
 
-<div class="message-row">
+        <div class="message-row">
             <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
             <div class="bubble bubble-image">
                 <img src="VZAT9630.JPG" alt="爱豆发送的图片">
@@ -213,7 +271,7 @@
             <div class="time">AM 11:24</div>
         </div>
 
-<div class="message-row">
+        <div class="message-row">
             <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
             <div class="bubble bubble-image">
                 <img src="KITE3104.JPG" alt="爱豆发送的图片">
@@ -221,7 +279,7 @@
             <div class="time">AM 11:24</div>
         </div>
 
-<div class="message-row">
+        <div class="message-row">
             <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
             <div class="bubble bubble-image">
                 <img src="VHON0276.JPG" alt="爱豆发送的图片">
@@ -239,7 +297,942 @@
             <div class="time">AM 11:24</div>
         </div>
 
+
+        <div class="date-separator">2026年5月29日 星期五</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                두쫀쿠버터떡 받았어? 
+                <hr>
+                <div class="translation">收到迪拜巧克力黄油年糕了吗</div>
+            </div>
+            <div class="time">AM 11:22</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                아주 맛있는거야 
+                <hr>
+                <div class="translation">真的很好吃</div>
+            </div>
+            <div class="time">AM 11:22</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="TZEU4272.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">AM 11:25</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="LOJM9110.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 22:14</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="LNMS4532.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 22:14</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                뭐가 더 맛있어？ 
+                <hr>
+                <div class="translation">哪个更好吃？</div>
+            </div>
+            <div class="time">PM 22:14</div>
+        </div>
+
+
+        <div class="date-separator">2026年5月30日 星期六</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                이제 사녹 가는중 
+                <hr>
+                <div class="translation">现在正在前往预录现场</div>
+            </div>
+            <div class="time">PM 21:23</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                ㅎㅎㅎ 
+                <hr>
+                <div class="translation">hhh</div>
+            </div>
+            <div class="time">PM 21:23</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                엄청 긴 하루네  
+                <hr>
+                <div class="translation">今天真是漫长的一天</div>
+            </div>
+            <div class="time">PM 21:23</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                y/n 있어서 버틸 수 있는 거야 
+                <hr>
+                <div class="translation">都是因为有y/n，我才能撑下去</div>
+            </div>
+            <div class="time">PM 21:23</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月1日 星期一</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="TTCM6331.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 13:13</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                좋은 하루💐 
+                <hr>
+                <div class="translation">美好的一天💐</div>
+            </div>
+            <div class="time">PM 13:14</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                맞아 y/n 에게 주는 거야~ 
+                <hr>
+                <div class="translation">没错，是给y/n的~</div>
+            </div>
+            <div class="time">PM 13:14</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                맞아 y/n 에게 주는 거야~ 
+                <hr>
+                <div class="translation">没错，是给y/n的~</div>
+            </div>
+            <div class="time">PM 13:14</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                Goodnight! 
+                <hr>
+                <div class="translation">晚安！</div>
+            </div>
+            <div class="time">PM 23:42</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                ♥️
+            </div>
+            <div class="time">PM 14:52</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月2日 星期二</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                너무너무 감사해요!! 
+                <hr>
+                <div class="translation">非常非常感谢！！</div>
+            </div>
+            <div class="time">PM 21:06</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                우리 위에 힘 쓰는 거 노력 하는 거 다 알아요 다 보고 있어요🥹
+                <hr>
+                <div class="translation">我知道你们在努力付出的一切，我都看在眼里🥹</div>
+            </div>
+            <div class="time">PM 21:08</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                넘넘 사랑해용
+                <hr>
+                <div class="translation">真的很爱你</div>
+            </div>
+            <div class="time">PM 21:09</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                谢谢不管发生 what 也支持的你
+            </div>
+            <div class="time">PM 21:15</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                会注意身心健康的 y/n也是！
+            </div>
+            <div class="time">PM 21:16</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                y/n 도 잘 쉬고 공간 조심!
+                <hr>
+                <div class="translation">y/n也要好好休息，注意健康！</div>
+            </div>
+            <div class="time">PM 21:17</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                love you♥️ 
+                <hr>
+                <div class="translation">爱你♥️ </div>
+            </div>
+            <div class="time">PM 21:17</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月4日 星期四</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="HXTS4898.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 15:28</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                잘 먹었지~ 
+                <hr>
+                <div class="translation">吃得好吧？</div>
+            </div>
+            <div class="time">PM 15:28</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月5日 星期五</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="PBMV5830.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 13:09</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                오늘도 화이팅! 
+                <hr>
+                <div class="translation">今天也加油！</div>
+            </div>
+            <div class="time">PM 13:13</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                이번에 거울 셀카 
+                <hr>
+                <div class="translation">这次是镜子自拍</div>
+            </div>
+            <div class="time">PM 13:13</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                🙂‍↕️
+            </div>
+            <div class="time">PM 13:13</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                和十六岁时候比确实别有一番风味
+            </div>
+            <div class="time">PM 23:48</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                搞笑
+            </div>
+            <div class="time">PM 23:48</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月6日 星期六</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                오늘 정말 운이 없네
+                <hr>
+                <div class="translation">今天真的很倒霉</div>
+            </div>
+            <div class="time">AM 11:20</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                미안 아까 무대할때 컨디션 안좋았어…
+                <hr>
+                <div class="translation">抱歉，刚才上台的时候状态不太好……</div>
+            </div>
+            <div class="time">AM 11:24</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                리허설 내려가기 전 대기실에서 급 하다가
+                <hr>
+                <div class="translation">彩排下台前在候机室匆匆忙忙的时候</div>
+            </div>
+            <div class="time">AM 11:25</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                엄지손가락에서 살 좀 크게 까겼어
+                <hr>
+                <div class="translation">拇指上被刮掉了一大块皮</div>
+            </div>
+            <div class="time">AM 11:26</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                피는 계속 멈추지 않아 근데 어떡해 무대해야하는데 
+                <hr>
+                <div class="translation">血一直止不住，可是怎么办，还要上台</div>
+            </div>
+            <div class="time">AM 11:28</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                끝나고 이제 변원 갔어~
+                <hr>
+                <div class="translation">结束后去医院了~</div>
+            </div>
+            <div class="time">AM 11:29</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                몇 바늘 꿰맸어
+                <hr>
+                <div class="translation">缝了几针</div>
+            </div>
+            <div class="time">AM 11:31</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                도 신기하네
+                <hr>
+                <div class="translation">好神奇啊</div>
+            </div>
+            <div class="time">AM 11:31</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                인생의 첫 꿰매
+                <hr>
+                <div class="translation">人生第一次缝针</div>
+            </div>
+            <div class="time">AM 11:32</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="FJYK8543.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 16:39</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="TLJU5656.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 16:39</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月7日 星期日</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="PFBR8934.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 21:30</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="UIEM8706.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 21:30</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                이마 하이
+                <hr>
+                <div class="translation">额头嗨</div>
+            </div>
+            <div class="time">PM 21:33</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                왕엄지 도 하이
+                <hr>
+                <div class="translation">王拇指也嗨</div>
+            </div>
+            <div class="time">PM 21:33</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                같은 사진 아니야
+                <hr>
+                <div class="translation">不是同一张照片</div>
+            </div>
+            <div class="time">PM 21:34</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                조금씩 달라
+                <hr>
+                <div class="translation">有点不一样</div>
+            </div>
+            <div class="time">PM 21:35</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月8日 星期一</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.JPG');"></div>
+            <div class="bubble bubble-image">
+                <img src="QRYW1140.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 23:42</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.JPG');"></div>
+            <div class="bubble">
+                활동 2주차 마치고 나 에게 선물
+                <hr>
+                <div class="translation">活动第2周结束后给自己的礼物</div>
+            </div>
+            <div class="time">PM 12:00</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.JPG');"></div>
+            <div class="bubble">
+                지금 먹는 게 아니고 방금 먹었어 ㅋㅋㅋ
+                <hr>
+                <div class="translation">不是现在吃的，是刚刚吃的，哈哈哈</div>
+            </div>
+            <div class="time">PM 12:00</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.JPG');"></div>
+            <div class="bubble">
+                근데 손 때문에 세팅 할 시간도 진짜 길어져서
+                <hr>
+                <div class="translation">但是因为手的原因，布置时间也真的变长了</div>
+            </div>
+            <div class="time">PM 12:00</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.JPG');"></div>
+            <div class="bubble">
+                사람 참 있을 때 소중한지 모르면서
+                <hr>
+                <div class="translation">人啊，果然总是在拥有的时候不知道珍惜</div>
+            </div>
+            <div class="time">PM 12:00</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.JPG');"></div>
+            <div class="bubble">
+                왕엄지 나타난 후 일상 생활 많이 어려워졌어ㅎㅎ
+                <hr>
+                <div class="translation">王拇指出现后，日常生活变得很困难了呵呵</div>
+            </div>
+            <div class="time">PM 12:00</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.JPG');"></div>
+            <div class="bubble">
+                大鸡腿哈哈哈…
+            </div>
+            <div class="time">PM 12:00</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.JPG');"></div>
+            <div class="bubble">
+                姐姐的嘴好毒
+            </div>
+            <div class="time">PM 12:00</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月9日 星期二</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.JPG');"></div>
+            <div class="bubble bubble-voice-clickable" onclick="openVideoPopup('QUYB5033.mp4')">
+                <span class="voice-icon">▶</span>
+                <span class="voice-text">Voice</span>
+            </div>
+            <div class="time">AM 00:06</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                아 걸렸네ㅎㅎ
+                <hr>
+                <div class="translation">啊，被抓到了哈哈</div>
+            </div>
+            <div class="time">AM 00:49</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月10日 星期三</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                y/n 오늘 뭐해?
+                <hr>
+                <div class="translation">y/n 今天在干嘛？</div>
+            </div>
+            <div class="time">PM 13:59</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                난 너 생각
+                <hr>
+                <div class="translation">我在想你</div>
+            </div>
+            <div class="time">PM 14:01</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                오래만에 잘 잤다 히히
+                <hr>
+                <div class="translation">好久没睡得这么好了 嘻嘻</div>
+            </div>
+            <div class="time">PM 15:10</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                지금 까지 자는게 아니고ㅋㅋ
+                <hr>
+                <div class="translation">不是睡到现在啦哈哈</div>
+            </div>
+            <div class="time">PM 15:12</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="ERWX7255.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 23:32</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="VDCL9996.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 23:32</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                나도 사랑해
+                <hr>
+                <div class="translation">我也爱你</div>
+            </div>
+            <div class="time">PM 23:33</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                오늘도 잘자~
+                <hr>
+                <div class="translation">今天也好好睡~</div>
+            </div>
+            <div class="time">PM 23:33</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月12日 星期五</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                퇴근했어~
+                <hr>
+                <div class="translation">下班了~</div>
+            </div>
+            <div class="time">PM 23:27</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                y/n 오늘 도 고생많았어
+                <hr>
+                <div class="translation">y/n 今天也辛苦了</div>
+            </div>
+            <div class="time">PM 23:28</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                이따 금방 만나야하니까
+                <hr>
+                <div class="translation">等会儿很快就要见面</div>
+            </div>
+            <div class="time">PM 23:30</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                빨리 자야 되는데🥺
+                <hr>
+                <div class="translation">所以我得赶紧睡觉了🥺</div>
+            </div>
+            <div class="time">PM 23:31</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月13日 星期六</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                오늘 진짜 더워ㅎㅎ
+                <hr>
+                <div class="translation">今天真的好热ㅎㅎ</div>
+            </div>
+            <div class="time">PM 14:21</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                사녹 하고 바로 오니까 땀 좍좍 흘리네
+                <hr>
+                <div class="translation">刚做完预录就过来，汗一直哗哗流</div>
+            </div>
+            <div class="time">PM 14:24</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                나도 오늘 착장 맘에 들어
+                <hr>
+                <div class="translation">我也很喜欢今天的穿搭</div>
+            </div>
+            <div class="time">PM 14:29</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                솔직히 큐리어스 의상 보다 좋아
+                <hr>
+                <div class="translation">说实话比Curious的服装更喜欢</div>
+            </div>
+            <div class="time">PM 14:31</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                우리 같은 마음이야 ㅋㅋㅋ
+                <hr>
+                <div class="translation">我们心情一样ㅋㅋㅋ</div>
+            </div>
+            <div class="time">PM 14:31</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                Possible我对废土风不太感冒
+            </div>
+            <div class="time">PM 14:34</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                맞다!
+                <hr>
+                <div class="translation">对！</div>
+            </div>
+            <div class="time">PM 14:35</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                오늘진짜 덥니까
+                <hr>
+                <div class="translation">今天真的很热嘛</div>
+            </div>
+            <div class="time">PM 14:36</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                더위타지마
+                <hr>
+                <div class="translation">别中暑</div>
+            </div>
+            <div class="time">PM 14:36</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                不要担心哈哈哈
+            </div>
+            <div class="time">PM 21:36</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                展示颜值的视频会有的
+            </div>
+            <div class="time">PM 21:36</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                请期待
+            </div>
+            <div class="time">PM 21:37</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                你们嘴上嫌弃
+            </div>
+            <div class="time">PM 21:39</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月14日 星期日</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                말해잖아ㅋㅋㅋ
+                <hr>
+                <div class="translation">我不是说了嘛ㅋㅋㅋ</div>
+            </div>
+            <div class="time">PM 20:19</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                会有展示颜值的视频
+            </div>
+            <div class="time">PM 20:19</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月15日 星期一</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="EFOF3136.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 13:59</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="QDTH0970.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 13:59</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                매일 같은 포즈 ㅋㅋㅋ
+                <hr>
+                <div class="translation">每天都是同样的姿势ㅋㅋㅋ</div>
+            </div>
+            <div class="time">PM 13:59</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="QRIZ3688.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 14:08</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                맛있당
+                <hr>
+                <div class="translation">好好吃呀</div>
+            </div>
+            <div class="time">PM 14:08</div>
+        </div>
+
+
+        <div class="date-separator">2026年6月17日 星期三</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                오늘 쇼컨 리허설 했어~
+                <hr>
+                <div class="translation">今天做了showcon彩排~</div>
+            </div>
+            <div class="time">PM 23:51</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('HSUP4939.jpg');"></div>
+            <div class="bubble">
+                멋있게 할 수 있는 거 같애
+                <hr>
+                <div class="translation">好像能做得很帅气</div>
+            </div>
+            <div class="time">PM 23:53</div>
+        </div>
+
+    </div> 
+    <div id="videoPopupOverlay" class="video-popup-overlay" onclick="closeVideoPopup()">
+        <video id="popupVideo" controls playsinline onclick="event.stopPropagation()"></video>
+        <div class="close-tip">点击任意空白区域退出</div>
     </div>
+
+
+    <script>
+        const overlay = document.getElementById('videoPopupOverlay');
+        const video = document.getElementById('popupVideo');
+
+        // 1. 点开白气泡时的动作
+        function openVideoPopup(videoUrl) {
+            video.src = videoUrl;          // 给视频标签传地址
+            overlay.style.display = 'flex'; // 强制让遮罩弹窗展现
+            
+            // 自动播放视频声音和画面
+            video.play().catch(error => {
+                console.log("浏览器自动播放被拦截，需要手动点击播放按钮");
+            });
+        }
+
+        // 2. 退出弹窗时的动作
+        function closeVideoPopup() {
+            video.pause();                  // 必须要先暂停，否则退出了声音还在放
+            video.src = "";                 // 清空地址释放内存
+            overlay.style.display = 'none'; // 重新把弹窗藏起来
+        }
+    </script>
 
 </body>
 </html>
