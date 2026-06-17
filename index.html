@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bubble Archive</title>
+    <style>
+        /* CSS：控制整体样式 */
+        
+        /* 1. 网页整体背景 */
+        body {
+            background-color: #A4B9D3; /* Bubble经典聊天背景色 */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center; 
+        }
+
+        /* 2. 聊天区域总容器 */
+        .chat-container {
+            width: 100%;
+            max-width: 450px; /* 保持手机端比例 */
+            background: transparent;
+            display: flex;
+            flex-direction: column; 
+        }
+
+        /* 3. 日期分隔线（天与天之间的分界线） */
+        .date-separator {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+            font-weight: bold;
+            margin: 30px 0 20px 0; /* 增加了上下间距，让天与天之间区分更明显 */
+            position: relative;
+        }
+
+        /* 4. 消息行容器（头像+气泡+时间） */
+        .message-row {
+            display: flex;
+            margin-bottom: 18px; /* 调整了每条消息之间的距离 */
+            align-items: flex-start; 
+        }
+
+        /* 5. 头像样式 */
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; 
+            background-color: #eee; 
+            background-size: cover;
+            margin-right: 10px;
+            flex-shrink: 0; 
+            border: 2px solid white; 
+        }
+
+        /* 6. 核心：双语聊天气泡 */
+        .bubble {
+            background-color: white; 
+            color: #333;
+            padding: 12px 14px;
+            border-radius: 18px;
+            border-top-left-radius: 0px; /* 保持每条左上角都是尖角 */
+            max-width: 70%; 
+            word-wrap: break-word; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* 灵魂细节：气泡内部的虚线分界线 */
+        .bubble hr {
+            border: none;
+            border-top: 1px dashed #ccc; /* dashed 代表虚线 */
+            margin: 8px 0; /* 虚线距离上下文字的间距 */
+        }
+
+        /* 翻译文本的样式：颜色稍淡，方便阅读区分 */
+        .translation {
+            color: #555;
+            font-size: 14.5px;
+        }
+
+        /* 如果是图片消息 */
+        .bubble-image {
+            padding: 4px; 
+            background-color: transparent; 
+            box-shadow: none;
+        }
+        
+        .bubble-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* 7. 发送时间样式 */
+        .time {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-left: 8px;
+            align-self: flex-end; 
+            margin-bottom: -4px; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+
+        <div class="date-separator">2026年5月27日 (周四)</div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                안녕! 드디어 이렇게 만났네~ 오래 기다렸었죠, 너한테만 하고 싶은 말 보여주고 싶은 재밌는 거 진짜 많은데 이제 드디어 할 수 있겠네요. 앞으로 천천히 얘기 나눠주자~ 내 사랑 🥰 
+                <hr>
+                <div class="translation">嗨！终于这样见面了呢~ 等了很久吧，只有想对你展现的话、想给你看的有趣的事情真的非常多，现在终于可以做到了呢。以后我们慢慢聊吧~ 我的爱 🥰</div>
+            </div>
+            <div class="time">AM 10:00</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                안녕!!!!!!
+                <hr>
+                <div class="translation">你好!!!!!!</div>
+            </div>
+            <div class="time">PM 12:05</div>
+        </div>
+
+<div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                오늘 1일야 히히
+                <hr>
+                <div class="translation">今天是第一天呀 嘻嘻</div>
+            </div>
+            <div class="time">PM 12:06</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="KKSL5458.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 14:49</div>
+        </div>
+
+<div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="ITNS3831.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 14:49</div>
+        </div>
+
+<div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="KFMU9325.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">PM 14:49</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                이 스팟 사진 잘 나와
+                <hr>
+                <div class="translation">这个地方拍照很好看</div>
+            </div>
+            <div class="time">PM 14:50</div>
+        </div>
+
+<div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                와서 같이 찍어줘
+                <hr>
+                <div class="translation">来和我一起拍张照吧</div>
+            </div>
+            <div class="time">PM 14:51</div>
+        </div>
+
+<div class="message-row">
+    <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+    <div class="bubble">
+        灵异事件哈哈哈
+    </div>
+    <div class="time">PM 14:51</div>
+</div>
+
+<div class="message-row">
+    <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+    <div class="bubble">
+        没错是👻帮我拍的
+    </div>
+    <div class="time">PM 14:52</div>
+</div>
+
+
+        <div class="date-separator">2026年5月28日 (周五)</div>
+
+<div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="VZAT9630.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">AM 11:24</div>
+        </div>
+
+<div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="KITE3104.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">AM 11:24</div>
+        </div>
+
+<div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble bubble-image">
+                <img src="VHON0276.JPG" alt="爱豆发送的图片">
+            </div>
+            <div class="time">AM 11:24</div>
+        </div>
+
+        <div class="message-row">
+            <div class="avatar" style="background-image: url('406be9bcly1idjtp2gornj20zk0zkjvw.jpg');"></div>
+            <div class="bubble">
+                좋은 아침~ 
+                <hr>
+                <div class="translation">早上好~</div>
+            </div>
+            <div class="time">AM 11:24</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
